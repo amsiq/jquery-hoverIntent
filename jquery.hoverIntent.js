@@ -31,12 +31,16 @@
  */
 
 ;(function(factory) {
-    'use strict';
-    if (typeof define === 'function' && define.amd) {
-        define(['jquery'], factory);
-    } else if (jQuery && !jQuery.fn.hoverIntent) {
-        factory(jQuery);
-    }
+	'use strict';
+	if (typeof define === 'function' && define.amd) {
+		define(function () {
+			return factory
+		});
+	} else if (typeof module === 'object' && typeof module.exports === 'object') {
+		module.exports = factory;
+	} else if (jQuery && !jQuery.fn.hoverIntent) {
+		factory(jQuery);
+	}
 })(function($) {
     'use strict';
 
